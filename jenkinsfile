@@ -27,3 +27,13 @@ pipeline {
 
     }
 }
+stage('Deploy to Website EC2') {
+    steps {
+        sh '''
+            ssh -i /var/lib/jenkins/.ssh/jenkins_deploy \
+            -o StrictHostKeyChecking=no \
+            ubuntu@10.0.0.4 \
+            'cd /home/ubuntu/dynamic-website && docker-compose pull && docker-compose up -d'
+        '''
+    }
+}
