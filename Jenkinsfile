@@ -2,11 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage('Test') {
+
+        stage('Build Docker Image') {
             steps {
-                echo 'Jenkins is connected to GitHub!'
-                sh 'docker --version'
+                sh 'docker build -t meenutitus/dynamic-website:latest .'
             }
         }
+
     }
 }
