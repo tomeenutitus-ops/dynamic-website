@@ -1,0 +1,7 @@
+services:
+  website:
+    image: meenutitus/dynamic-website:latest
+    container_name: dynamic-website-container
+    ports:
+      - "8080:80"
+    restart: always
