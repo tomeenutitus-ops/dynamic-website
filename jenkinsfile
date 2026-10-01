@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Build Docker Image') {
+            steps {
+                sh 'docker build -t meenutitus/dynamic-website:latest .'
+            }
+        }
+
+        stage('Push to Docker Hub') {
+            steps {
+                echo 'Docker Hub push will be configured next.'
+            }
+        }
+
+    }
+}
